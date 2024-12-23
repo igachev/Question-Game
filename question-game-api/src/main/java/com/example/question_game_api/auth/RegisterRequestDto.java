@@ -49,12 +49,5 @@ public class RegisterRequestDto {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    @Override
-    public String toString() {
-        return "RegisterRequestDto [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-                + ", password=" + password + "]";
-    }
-
 
 }
