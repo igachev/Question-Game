@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.question_game_api.exceptions.UserAlreadyExistsException;
 import com.example.question_game_api.role.Role;
 import com.example.question_game_api.role.RoleRepository;
 import com.example.question_game_api.user.User;
@@ -36,6 +37,11 @@ public AuthenticationService() { }
 
 
     public RegisterResponse register(RegisterRequestDto registerRequestDto) throws Exception {
+       
+       if(userRepository.findByEmail(registerRequestDto.getEmail()) != null) {
+       throw new UserAlreadyExistsException("User with that email already exists!");
+       }
+
         User user = new User();
         user.setFirstName(registerRequestDto.getFirstName());
         user.setLastName(registerRequestDto.getLastName());
