@@ -1,9 +1,14 @@
 package com.example.question_game_api.exceptions;
 
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.springframework.core.NestedExceptionUtils;
+import org.springframework.dao.DataAccessException;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -48,7 +53,7 @@ public class GlobalExceptionHandler {
     }
 
     @ExceptionHandler(BadCredentialsException.class)
-    public ResponseEntity<ErrorObject> handResponseEntity(
+    public ResponseEntity<ErrorObject> handleException(
         BadCredentialsException ex,
         WebRequest webRequest
     ) {
@@ -60,6 +65,22 @@ public class GlobalExceptionHandler {
         errorObject.setErrorList(errors);
 
         return ResponseEntity.ok(errorObject);
+    }
+
+   @ExceptionHandler(QuestionAlreadyExists.class)
+    public ResponseEntity<ErrorObject> handleException(
+        QuestionAlreadyExists ex,
+        WebRequest webRequest
+    ) {
+        ErrorObject errorObject = new ErrorObject();
+
+        errorObject.setStatusCode(HttpStatus.CONFLICT.value());
+
+        Set<String> errors = new HashSet<>();
+        errors.add(ex.getMessage());
+        errorObject.setErrorList(errors);
+
+        return new ResponseEntity<ErrorObject>(errorObject,HttpStatus.CONFLICT);
     }
 
 }

@@ -45,10 +45,11 @@ public AuthenticationService() { }
 
     public RegisterResponse register(RegisterRequestDto registerRequestDto) throws Exception {
        
-       if(userRepository.findByEmail(registerRequestDto.getEmail()) != null) {
-       throw new UserAlreadyExistsException("User with that email already exists!");
+       boolean isUserExisting = userRepository.existsByEmail(registerRequestDto.getEmail());
+       if(isUserExisting) {
+        throw new UserAlreadyExistsException("User with that email already exists!");
        }
-
+       
         User user = new User();
         user.setFirstName(registerRequestDto.getFirstName());
         user.setLastName(registerRequestDto.getLastName());
