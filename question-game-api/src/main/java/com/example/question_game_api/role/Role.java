@@ -3,10 +3,11 @@ package com.example.question_game_api.role;
 import java.util.List;
 
 import com.example.question_game_api.user.User;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
@@ -58,8 +59,10 @@ public class Role {
 
     @Override
     public String toString() {
-        return "Role [id=" + id + ", name=" + name + ", users=" + users + "]";
+        return "Role [id=" + id + ", name=" + name + "]";
     }
+
+    
 
     
 }
