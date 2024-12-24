@@ -34,8 +34,9 @@ public class SecurityConfig {
         .csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests((req) -> 
         req.requestMatchers("/auth/**").permitAll()
+        .requestMatchers("/questions/create").hasAuthority("ADMIN")
         .anyRequest()
-        .authenticated()
+        .permitAll()
         )
         .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authenticationProvider(authenticationProvider)
