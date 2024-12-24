@@ -9,13 +9,17 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.example.question_game_api.question.Question;
 import com.example.question_game_api.role.Role;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -30,8 +34,10 @@ private String lastName;
 @Column(unique = true)
 private String email;
 private String password;
-@ManyToMany
+@ManyToMany(fetch = FetchType.EAGER)
 private List<Role> roles;
+@OneToMany(mappedBy = "creator")
+private List<Question> questions;
 
 public User() {
 
