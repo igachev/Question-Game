@@ -5,6 +5,7 @@ import java.util.Set;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -41,6 +42,21 @@ public class GlobalExceptionHandler {
 
         Set<String> errors = new HashSet<>();
         errors.add(ex.getMessage());
+        errorObject.setErrorList(errors);
+
+        return ResponseEntity.ok(errorObject);
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<ErrorObject> handResponseEntity(
+        BadCredentialsException ex,
+        WebRequest webRequest
+    ) {
+        ErrorObject errorObject = new ErrorObject();
+        errorObject.setStatusCode(HttpStatus.FORBIDDEN.value());
+
+        Set<String> errors = new HashSet<>();
+        errors.add("Invalid username / password");
         errorObject.setErrorList(errors);
 
         return ResponseEntity.ok(errorObject);
