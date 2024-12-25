@@ -1,5 +1,9 @@
 package com.example.question_game_api.question;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
@@ -49,6 +53,24 @@ public class QuestionService {
         questionResponse.setCreatorId(addedQuestion.getCreator().getId());
 
         return questionResponse;
+    }
+
+    public List<QuestionResponse> generateTenRandomQuestions() {
+        List<Question> questions = questionRepository.generateTenRandomQuestions();
+
+        List<QuestionResponse> result = questions.stream()
+        .map((question) -> {
+        QuestionResponse questionResponse = new QuestionResponse();
+        questionResponse.setId(question.getId());
+        questionResponse.setQuestion(question.getQuestion());
+        questionResponse.setAnswers(question.getAnswers());
+        questionResponse.setCorrectAnswer(question.getCorrectAnswer());
+        questionResponse.setCreatorId(question.getCreator().getId());
+        return questionResponse;
+        })
+        .collect(Collectors.toList());
+
+        return result;
     }
 
 
