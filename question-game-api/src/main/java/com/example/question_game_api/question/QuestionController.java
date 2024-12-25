@@ -13,6 +13,7 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
@@ -43,5 +44,11 @@ public class QuestionController {
         return ResponseEntity.ok(questionService.generateTenRandomQuestions());
     }
     
+    @GetMapping("/{question-id}")
+    public ResponseEntity<QuestionResponse> getQuestion(
+        @PathVariable(name = "question-id") Integer questionId
+        ) {
+        return ResponseEntity.ok(questionService.getQuestionById(questionId));
+    }
     
 }
