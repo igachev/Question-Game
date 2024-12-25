@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Service;
 
+import com.example.question_game_api.exceptions.NonExistentQuestionException;
 import com.example.question_game_api.exceptions.QuestionAlreadyExists;
 import com.example.question_game_api.user.User;
 
@@ -71,6 +72,20 @@ public class QuestionService {
         .collect(Collectors.toList());
 
         return result;
+    }
+
+    public QuestionResponse getQuestionById(Integer questionId) {
+        Question question = questionRepository.findById(questionId)
+        .orElseThrow(() -> new NonExistentQuestionException("no such question exists!"));
+
+        QuestionResponse questionResponse = new QuestionResponse();
+        questionResponse.setId(question.getId());
+        questionResponse.setQuestion(question.getQuestion());
+        questionResponse.setAnswers(question.getAnswers());
+        questionResponse.setCorrectAnswer(question.getCorrectAnswer());
+        questionResponse.setCreatorId(question.getCreator().getId());
+        
+        return questionResponse;
     }
 
 
