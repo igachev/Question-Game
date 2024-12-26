@@ -13,8 +13,10 @@ import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+
+
 
 
 
@@ -49,6 +51,14 @@ public class QuestionController {
         @PathVariable(name = "question-id") Integer questionId
         ) {
         return ResponseEntity.ok(questionService.getQuestionById(questionId));
+    }
+
+    @PatchMapping("/{question-id}/edit")
+    public ResponseEntity<QuestionResponse> editQuestion(
+        @PathVariable(name = "question-id") Integer questionId, 
+        @RequestBody @Valid QuestionRequestDto questionRequestDto
+        ) {
+        return ResponseEntity.ok(questionService.editQuestion(questionId,questionRequestDto)); 
     }
     
 }
