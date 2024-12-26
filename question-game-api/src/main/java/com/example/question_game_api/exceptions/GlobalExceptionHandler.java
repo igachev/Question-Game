@@ -1,20 +1,15 @@
 package com.example.question_game_api.exceptions;
 
-import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.Set;
-
-import org.springframework.core.NestedExceptionUtils;
-import org.springframework.dao.DataAccessException;
-import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
+
 
 
 @ControllerAdvice
@@ -98,5 +93,6 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<ErrorObject>(errorObject,HttpStatus.NOT_FOUND);
     }
+
 
 }

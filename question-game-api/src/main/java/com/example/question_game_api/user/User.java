@@ -12,7 +12,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import com.example.question_game_api.question.Question;
 import com.example.question_game_api.role.Role;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.FetchType;

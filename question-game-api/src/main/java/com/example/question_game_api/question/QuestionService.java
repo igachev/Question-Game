@@ -1,6 +1,5 @@
 package com.example.question_game_api.question;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -11,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.example.question_game_api.exceptions.NonExistentQuestionException;
 import com.example.question_game_api.exceptions.QuestionAlreadyExists;
 import com.example.question_game_api.user.User;
+
 
 @Service
 public class QuestionService {
@@ -85,6 +85,26 @@ public class QuestionService {
         questionResponse.setCorrectAnswer(question.getCorrectAnswer());
         questionResponse.setCreatorId(question.getCreator().getId());
         
+        return questionResponse;
+    }
+
+    public QuestionResponse editQuestion(Integer questionId, QuestionRequestDto questionRequestDto) {
+        Question question = questionRepository.findById(questionId)
+        .orElseThrow(() -> new NonExistentQuestionException("no such question exists!"));
+
+        question.setQuestion(questionRequestDto.getQuestion());
+        question.setAnswers(questionRequestDto.getAnswers());
+        question.setCorrectAnswer(questionRequestDto.getCorrectAnswer());
+        
+        Question editedQuestion = questionRepository.save(question);
+
+        QuestionResponse questionResponse = new QuestionResponse();
+        questionResponse.setId(editedQuestion.getId());
+        questionResponse.setQuestion(editedQuestion.getQuestion());
+        questionResponse.setAnswers(editedQuestion.getAnswers());
+        questionResponse.setCorrectAnswer(editedQuestion.getCorrectAnswer());
+        questionResponse.setCreatorId(editedQuestion.getCreator().getId());
+
         return questionResponse;
     }
 
