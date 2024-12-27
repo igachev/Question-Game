@@ -11,6 +11,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.example.question_game_api.question.Question;
 import com.example.question_game_api.role.Role;
+import com.example.question_game_api.score.Score;
+
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -37,6 +39,8 @@ private String password;
 private List<Role> roles;
 @OneToMany(mappedBy = "creator")
 private List<Question> questions;
+@OneToMany(mappedBy = "user")
+private List<Score> scores;
 
 public User() {
 
