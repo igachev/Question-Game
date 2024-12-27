@@ -108,5 +108,13 @@ public class QuestionService {
         return questionResponse;
     }
 
+    public String deleteQuestion(Integer questionId) {
+        Question question = questionRepository.findById(questionId)
+        .orElseThrow(() -> new NonExistentQuestionException("no such question exists!"));
+
+        questionRepository.delete(question);
+        return "the question was deleted successfully";
+    }
+
 
 }
