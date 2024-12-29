@@ -1,5 +1,7 @@
 package com.example.question_game_api.score;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +13,9 @@ import jakarta.validation.Valid;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RestController
@@ -35,5 +40,11 @@ public class ScoreController {
         ) {
     return new ResponseEntity<ScoreResponse>(scoreService.addScore(scoreRequestDto,connectedUser),HttpStatus.CREATED);
     }
+
+    @GetMapping("/user")
+    public ResponseEntity<List<ScoreResponse>> getUserScores(Authentication connectedUser) {
+        return ResponseEntity.ok(scoreService.getUserScores(connectedUser));
+    }
+    
     
 }
