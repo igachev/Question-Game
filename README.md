@@ -34,3 +34,15 @@
 - jjwt-impl
 - jjwt-jackson
 - postgresql
+
+## Endpoints:
+- `POST /auth/register`: it creates new user
+- `POST /auth/login`: Sign In user with valid credentials
+- `GET /questions`: it generates 10 unique random questions from the database
+- `POST /questions/create`: it creates new question
+- `GET /questions/:question-id`: it shows particular question
+- `PATCH /questions/:question-id/edit`: it edits particular question
+- `DELETE /questions/:question-id/delete`: it deletes particular question
+- `POST /score/add`: it adds the user score
+- `GET /score/user`: it shows all scores for particular user
+- `GET /score/all-users`: shows a list of each user's top scores
