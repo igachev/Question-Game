@@ -59,5 +59,21 @@ public class ScoreService {
 
         return result;
     }
+
+    public List<ScoreResponse> findBestScoreForEachUser() {
+        List<Score> allScores = scoreRepository.findBestScoreForEachUser();
+
+        List<ScoreResponse> bestScoreForEachUser = allScores.stream()
+        .map((userScore) -> { 
+            ScoreResponse scoreResponse = new ScoreResponse();
+            scoreResponse.setPoints(userScore.getPoints());
+            scoreResponse.setPlayedAt(userScore.getPlayedAt());
+            scoreResponse.setPlayerEmail(userScore.getUser().getEmail());
+            return scoreResponse;
+        })
+        .collect(Collectors.toList());
+
+        return bestScoreForEachUser;
+    }
     
 }
