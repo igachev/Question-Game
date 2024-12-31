@@ -1,0 +1,23 @@
+<section class="header-section">
+    <article class="logo">
+    <p>Dare the challenge</p>
+    </article>
+    <article class="nav-menu">
+        <nav>
+            <ul>
+                <li>
+                    <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a [routerLink]="['/auth/login']">Login</a>
+                    <span></span>
+                </li>
+                <li>
+                    <a [routerLink]="['/auth/register']">Register</a>
+                    <span></span>
+                </li>
+            </ul>
+        </nav>
+    </article>
+</section>
