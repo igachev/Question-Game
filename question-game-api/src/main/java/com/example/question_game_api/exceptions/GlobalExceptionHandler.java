@@ -29,7 +29,7 @@ public class GlobalExceptionHandler {
 
         errorObject.setErrorList(errors);
         
-        return ResponseEntity.ok(errorObject);
+        return new ResponseEntity<ErrorObject>(errorObject,HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler(UserAlreadyExistsException.class)
@@ -44,7 +44,7 @@ public class GlobalExceptionHandler {
         errors.add(ex.getMessage());
         errorObject.setErrorList(errors);
 
-        return ResponseEntity.ok(errorObject);
+        return new ResponseEntity<ErrorObject>(errorObject,HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(BadCredentialsException.class)
@@ -59,7 +59,7 @@ public class GlobalExceptionHandler {
         errors.add("Invalid username / password");
         errorObject.setErrorList(errors);
 
-        return ResponseEntity.ok(errorObject);
+        return new ResponseEntity<ErrorObject>(errorObject,HttpStatus.FORBIDDEN);
     }
 
    @ExceptionHandler(QuestionAlreadyExists.class)
