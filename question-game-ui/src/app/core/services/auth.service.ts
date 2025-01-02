@@ -16,6 +16,15 @@ export interface RegisterRequestData {
   lastName: string;
 }
 
+export interface LoginResponseData {
+  token: string;
+}
+
+export interface LoginRequestData {
+  email: string;
+  password: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -31,6 +40,23 @@ export class AuthService {
     return this.http.post<RegisterResponseData>("http://localhost:8080/auth/register",
       registerRequestData
     )
+    .pipe(
+      catchError((err) => {
+        let errors: string[] = []
+        if(!err.error || !err.error.errorList) {
+          errors.push("An error occured")
+         return throwError(errors)
+        }
+        else {
+          errors = err.error.errorList
+          return throwError(errors)
+        }
+      })
+    )
+  }
+
+  login(loginRequestData:LoginRequestData) {
+    return this.http.post<LoginResponseData>("http://localhost:8080/auth/login",loginRequestData)
     .pipe(
       catchError((err) => {
         let errors: string[] = []
