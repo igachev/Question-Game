@@ -1,0 +1,41 @@
+
+<section class="login-section">
+    <h2>Login Page</h2>
+    <form 
+    method="post"
+    #loginForm="ngForm"
+    (ngSubmit)="onLogin(loginForm)"
+    >
+        <div>
+            <label for="email">Email:</label>
+            <input 
+            type="email" 
+            name="email" 
+            ngModel 
+            required
+            email
+            #email="ngModel"
+            >
+            <div *ngIf="email.touched && !email.valid">
+                <p *ngIf="email.errors?.['required']">Email is required</p>
+                <p *ngIf="email.errors?.['email']">Email is not valid</p>
+            </div>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input 
+            type="password" 
+            name="password"
+            ngModel 
+            required
+            #password="ngModel"
+            >
+            <div *ngIf="password.touched && !password.valid">
+                <p *ngIf="password.errors?.['required']">Password is required</p>
+            </div>
+        </div>  
+        <div>
+            <button type="submit" [disabled]="!loginForm.valid">Login</button>
+        </div>
+    </form>
+</section>
