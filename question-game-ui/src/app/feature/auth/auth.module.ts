@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { LoginComponent } from './login/login.component';
     CommonModule,
     HttpClientModule,
     FormsModule,
+    SharedModule,
     RouterModule,
     AuthRoutingModule
   ]
