@@ -1,6 +1,9 @@
 
 <section class="login-section">
     <h2>Login Page</h2>
+    <ng-container *ngIf="listOfErrors.length > 0">
+        <app-error [err]="listOfErrors"></app-error>
+    </ng-container>
     <form 
     method="post"
     #loginForm="ngForm"

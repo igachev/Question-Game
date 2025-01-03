@@ -12,6 +12,7 @@ import { AuthService, LoginRequestData } from 'src/app/core/services/auth.servic
 export class LoginComponent implements OnDestroy {
 
   private loginSubscription!: Subscription
+  listOfErrors: string[] = []
 
   constructor(
     private authService:AuthService,
@@ -31,6 +32,7 @@ this.loginSubscription = this.authService.login(loginRequestData)
   },
   error: (err) => {
     console.log(err)
+    this.listOfErrors = err
   }
 })
 }
