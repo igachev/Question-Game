@@ -10,8 +10,8 @@ import { AuthService, RegisterRequestData } from 'src/app/core/services/auth.ser
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnDestroy {
-  private errorMessage!: string;
   private registrationSubscription!: Subscription;
+  listOfErrors: string[] = []
 
   constructor(
     private authService: AuthService,
@@ -30,7 +30,7 @@ export class RegisterComponent implements OnDestroy {
         this.router.navigate(['/'])
       },
       error: (err) => {
-        console.log(err)
+        this.listOfErrors = err
       }
     })
   }
