@@ -9,6 +9,7 @@
                     <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Home</a>
                     <span></span>
                 </li>
+               <ng-container *ngIf="!isAuthenticated">
                 <li>
                     <a [routerLink]="['/auth/login']">Login</a>
                     <span></span>
@@ -17,6 +18,13 @@
                     <a [routerLink]="['/auth/register']">Register</a>
                     <span></span>
                 </li>
+               </ng-container>
+               <ng-container *ngIf="isAuthenticated">
+                <li>
+                    <button (click)="onLogout()">Logout</button>
+                    <span></span>
+                </li>
+                </ng-container>
             </ul>
         </nav>
     </article>
