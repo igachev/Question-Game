@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, throwError } from 'rxjs';
+import { Router } from '@angular/router';
+import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
+import { User } from 'src/app/feature/auth/user.model';
 
 
 export interface RegisterResponseData {
@@ -30,8 +32,12 @@ export interface LoginRequestData {
 })
 export class AuthService {
 
+   userObject = new BehaviorSubject<User>(new User('','',new Date()))
+   private timeout: any;
+
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { 
 
   }
@@ -68,8 +74,51 @@ export class AuthService {
           errors = err.error.errorList
           return throwError(errors)
         }
+      }),
+      tap((res) => {
+        const expireDate = new Date(new Date().getTime() + 60000 * 2);
+        const user = new User(loginRequestData.email,res.token,expireDate)
+        localStorage.setItem("userData",JSON.stringify(user))
+        const expirationDate = expireDate.getTime()
+        const currentDate = new Date().getTime()
+        const differenceInDates = expirationDate - currentDate;
+        this.userObject.next(user)
+        this.autoLogout(differenceInDates)
+        
       })
     )
+  }
+
+  autoLogin() {
+    if(localStorage.getItem("userData")) {
+      let userDataString = localStorage.getItem("userData")
+      if(userDataString) {
+        let userData = JSON.parse(userDataString)
+        let user = new User(userData.email,userData._token,new Date(userData.expireDate))
+        this.userObject.next(user)
+        const expirationDate = new Date(userData.expireDate).getTime()
+        const currentDate = new Date().getTime()
+        const differenceInDates = expirationDate - currentDate;
+        console.log(differenceInDates)
+        this.autoLogout(differenceInDates)
+        
+      }
+    }
+    else {
+      return;
+    }
+  }
+
+  autoLogout(differenceInDates: number) {
+    if(this.timeout) {
+      clearTimeout(this.timeout)
+    }
+      this.timeout = setTimeout(() => {
+      const user = new User('','',new Date())
+      this.userObject.next(user)
+      localStorage.removeItem("userData")
+      this.router.navigate(["/"])
+    }, differenceInDates);
   }
 
 }
