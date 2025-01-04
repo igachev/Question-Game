@@ -21,6 +21,10 @@
                </ng-container>
                <ng-container *ngIf="isAuthenticated">
                 <li>
+                    <a [routerLink]="['/questions']">Play Now</a>
+                    <span></span>
+                </li>
+                <li>
                     <button (click)="onLogout()">Logout</button>
                     <span></span>
                 </li>
