@@ -1,11 +1,13 @@
 <section class="question-game-section">
 
-    <article>
+    <article class="question-game-article">
         <h3>When you are ready start the game</h3>
-        <h4>10 random questions will be generated</h4>
-        <h5>You should answer them in the given time</h5>
+        <p>10 random questions will be generated</p>
+        <p>You should answer them in the given time</p>
         <p>After the completion of the test your result will be stored</p>
-        <button (click)="getQuestions()">Start</button>
+        <div class="btn-container">
+            <button (click)="getQuestions()" class="start-btn">Start</button>
+        </div>
     </article>
 
     <ng-container *ngIf="questions.length > 0">
