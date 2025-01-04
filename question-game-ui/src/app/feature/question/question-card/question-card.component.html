@@ -1,0 +1,17 @@
+
+<article class="question-card">
+    <div>
+        <p>Timer:</p>
+        <p>Points: {{ points }}</p>
+        <progress [value]="index+1" [max]="totalQuestions"></progress>
+    </div>
+    <div>
+        <h3>{{ question.question }}</h3>
+        <div *ngFor="let answer of question.answers;let i">
+            <button (click)="checkAnswer(answer)">{{answer}}</button>
+        </div>
+        <div>
+            <button type="button" (click)="nextQuestion()">Next Question</button>
+        </div>
+    </div>
+</article>
