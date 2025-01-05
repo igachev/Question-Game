@@ -1,17 +1,29 @@
 
 <article class="question-card">
-    <div>
+    <div class="timer-points-container">
         <p>Timer:</p>
         <p>Points: {{ points }}</p>
         <progress [value]="index+1" [max]="totalQuestions"></progress>
+        <p>Question №:{{ index+1 }} / {{ totalQuestions }}</p>
     </div>
-    <div>
-        <h3>{{ question.question }}</h3>
-        <div *ngFor="let answer of question.answers;let i">
-            <button (click)="checkAnswer(answer)">{{answer}}</button>
+    <div class="question-container">
+        <h3 class="question-title">{{ question.question }}</h3>
+        <div class="answers-container">
+            <button 
+            *ngFor="let answer of question.answers;let i=index"
+            #btn
+            (click)="checkAnswer(answer)" 
+            class="answer-btn"
+            [ngClass]="{
+                'correct': isSelected && answer === question.correctAnswer,
+                'wrong': isSelected && answer !== question.correctAnswer
+              }"
+            >
+            {{ i+1 }}.{{ answer }}
+            </button>
         </div>
         <div>
-            <button type="button" (click)="nextQuestion()">Next Question</button>
+            <button type="button" (click)="nextQuestion()" class="next-btn">Next Question</button>
         </div>
     </div>
 </article>

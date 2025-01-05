@@ -76,7 +76,7 @@ export class AuthService {
         }
       }),
       tap((res) => {
-        const expireDate = new Date(new Date().getTime() + 60000 * 15);
+        const expireDate = new Date(new Date().getTime() + (60000 * 15));
         const user = new User(loginRequestData.email,res.token,expireDate)
         localStorage.setItem("userData",JSON.stringify(user))
         const expirationDate = expireDate.getTime()

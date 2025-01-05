@@ -9,7 +9,8 @@ import { QuestionResponseData } from 'src/app/core/services/question.service';
 export class QuestionCardComponent {
 
 
-
+  isSelected: boolean = false;
+  isAlreadyClicked: boolean = false;
   @Input() question!: QuestionResponseData;
   @Input() index!: number;
   @Input() totalQuestions!: number;
@@ -18,15 +19,22 @@ export class QuestionCardComponent {
   @Output() indexEmitter: EventEmitter<number> = new EventEmitter<number>();
 
   checkAnswer(userAnswer: string) {
-    if(userAnswer === this.question.correctAnswer) {
+    this.isSelected = true;
+    if(userAnswer === this.question.correctAnswer && !this.isAlreadyClicked) {
       this.points += 10;
       this.pointsEmitter.next(this.points)
+      this.isAlreadyClicked = true;
+    }
+    else if(userAnswer !== this.question.correctAnswer && !this.isAlreadyClicked) {
+      this.isAlreadyClicked = true;
     }
     }
 
     nextQuestion() {
       this.index++;
       this.indexEmitter.next(this.index)
+      this.isSelected = false;
+      this.isAlreadyClicked = false;
     }
 
 }

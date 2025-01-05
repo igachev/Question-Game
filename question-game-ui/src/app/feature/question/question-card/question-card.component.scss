@@ -1,0 +1,101 @@
+
+.question-card {
+    margin: 0.8rem auto;
+    width: 60%;
+    height: 60%;
+    background-color: red;
+    color: #fff;
+    background-color: #2E8B57;
+    border-radius: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    animation-name: question-box;
+    animation-duration: 3s;
+    
+    .timer-points-container {
+        width: 90%;
+        display: flex;
+        justify-content: space-between;
+        p {
+            font-size: 1.4rem;
+        }
+        progress[value] {
+            width: 350px;
+            height: 30px;
+          }
+    }
+    .question-container {
+        
+        padding: 1rem;
+        width: 95%;
+        height: 70%;
+        display: flex;
+        flex-direction: column;
+        
+        align-items: center;
+        .question-title {
+            font-size: 1.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            opacity: 0.9;
+            text-shadow: 2px 2px black;
+            text-align: center;
+            animation-name: question;
+            animation-duration: 3s;
+            animation-iteration-count:infinite;
+        }
+        .answers-container {
+            width: 50%;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            padding: 0.5rem 0.3rem;
+            .answer-btn {
+                font-size: 1.2rem;
+                font-weight: 800;
+                letter-spacing: 0.3px;
+                background-color: burlywood;
+                padding: 0.3rem 0.5rem;
+                margin: 0.3rem 0;
+                border: none;
+                border-radius: 0.4rem;
+                cursor: pointer;
+                transition: all 0.3s ease-in;
+            }
+            .answer-btn:hover {
+                background-color: white;
+            }
+            .answer-btn.correct {
+                background-color: green;
+            }
+            .answer-btn.wrong {
+                background-color: red;
+            }
+        }
+        .next-btn {
+            background-color: darkorange;
+            color: #fff;
+            font-size: 1.4rem;
+            padding: 0.5rem 0.6rem;
+            border: none;
+            border-radius: 0.7rem;
+            cursor: pointer;
+            font-weight: 100;
+            
+        }
+    }
+}
+
+@keyframes question-box {
+    0%   {transform: translateX(-100%);}
+    
+    100% {transform: translateX(0);}
+  }
+
+@keyframes question {
+    0%   {transform: translate(0,0);}
+    50%  {transform: translate(5%,0);}
+    100% {transform: translate(0,0);}
+}
