@@ -1,6 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { QuestionResponseData, QuestionService } from 'src/app/core/services/question.service';
+import { ScoreRequestData, ScoreService } from 'src/app/core/services/score.service';
 
 @Component({
   selector: 'app-question-game-page',
@@ -10,13 +12,16 @@ import { QuestionResponseData, QuestionService } from 'src/app/core/services/que
 export class QuestionGamePageComponent implements OnInit,OnDestroy {
 
   private questionSubscription!: Subscription;
+  private addScoreSubscription!: Subscription;
   questions: QuestionResponseData[] = [];
   index: number = 0;
   totalQuestions: number = 0;
   points: number = 0;
 
   constructor(
-    private questionService: QuestionService
+    private questionService: QuestionService,
+    private scoreService: ScoreService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -34,6 +39,16 @@ export class QuestionGamePageComponent implements OnInit,OnDestroy {
     })
   }
 
+  saveScore(points: number) {
+    const scoreRequestData:ScoreRequestData = {points}
+    this.addScoreSubscription = this.scoreService.saveScore(scoreRequestData)
+    .subscribe({
+      next: (res) => {
+        this.router.navigate(['/'])
+      }
+    })
+  }
+
   updatePoints(earnedPoints: number) {
     this.points = earnedPoints
     }
@@ -45,6 +60,9 @@ export class QuestionGamePageComponent implements OnInit,OnDestroy {
   ngOnDestroy(): void {
       if(this.questionSubscription) {
         this.questionSubscription.unsubscribe()
+      }
+      if(this.addScoreSubscription) {
+        this.addScoreSubscription.unsubscribe()
       }
   }
 
