@@ -22,8 +22,11 @@
             {{ i+1 }}.{{ answer }}
             </button>
         </div>
-        <div>
+        <div *ngIf="index < totalQuestions - 1">
             <button type="button" (click)="nextQuestion()" class="next-btn">Next Question</button>
+        </div>
+        <div *ngIf="index === totalQuestions - 1">
+            <button type="button" (click)="onSaveResult()" class="next-btn">Finish Game</button>
         </div>
     </div>
 </article>

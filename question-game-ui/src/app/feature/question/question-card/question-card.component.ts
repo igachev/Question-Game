@@ -17,6 +17,7 @@ export class QuestionCardComponent {
   @Input() points!: number;
   @Output() pointsEmitter: EventEmitter<number> = new EventEmitter<number>();
   @Output() indexEmitter: EventEmitter<number> = new EventEmitter<number>();
+  @Output() saveResultEmitter: EventEmitter<number> = new EventEmitter<number>()
 
   checkAnswer(userAnswer: string) {
     this.isSelected = true;
@@ -31,10 +32,16 @@ export class QuestionCardComponent {
     }
 
     nextQuestion() {
-      this.index++;
-      this.indexEmitter.next(this.index)
-      this.isSelected = false;
-      this.isAlreadyClicked = false;
+      if(this.index < this.totalQuestions - 1) {
+        this.index++;
+        this.indexEmitter.next(this.index)
+        this.isSelected = false;
+        this.isAlreadyClicked = false;
+      }
+    }
+
+    onSaveResult() {
+      this.saveResultEmitter.next(this.points)
     }
 
 }
