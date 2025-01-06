@@ -8,7 +8,6 @@ import { FormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { QuestionCardComponent } from './question-card/question-card.component';
 
-
 @NgModule({
   declarations: [
     QuestionGamePageComponent,
