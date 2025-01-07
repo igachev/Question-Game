@@ -40,4 +40,21 @@ export class ScoreService {
    )
   }
 
+  getUserScores() {
+    return this.http.get<ScoreResponseData[]>("http://localhost:8080/score/user")
+    .pipe(
+      catchError((err) => {
+       let errors:string[] = [];
+       if(!err.error || !err.error.errorList) {
+        errors.push("An error occurred")
+        return throwError(errors)
+       }
+       else {
+        errors = err.error.errorList
+        return throwError(errors)
+       }
+      })
+     )
+  }
+
 }
