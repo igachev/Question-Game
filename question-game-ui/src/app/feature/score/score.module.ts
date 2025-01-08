@@ -3,11 +3,13 @@ import { CommonModule } from '@angular/common';
 
 import { ScoreRoutingModule } from './score-routing.module';
 import { UserScoresComponent } from './user-scores/user-scores.component';
+import { AllUsersScoresComponent } from './all-users-scores/all-users-scores.component';
 
 
 @NgModule({
   declarations: [
-    UserScoresComponent
+    UserScoresComponent,
+    AllUsersScoresComponent
   ],
   imports: [
     CommonModule,

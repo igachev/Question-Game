@@ -1,0 +1,27 @@
+<section class="all-users-scores-section">
+    <div class="user-info">
+        <h2>List of our players sorted by their best result</h2>
+    </div>
+        <table *ngIf="allUsersScores.length > 0">
+            <thead>
+                <tr>
+                <th>№</th>
+                <th>Player</th>
+                <th>Points</th>
+                <th>Played At</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let userScore of allUsersScores;let i = index">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ userScore.playerEmail }}</td>
+                    <td>{{ userScore.points }}</td>
+                    <td>{{ userScore.playedAt | date }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div *ngIf="allUsersScores.length === 0">
+            <p>No game records yet</p>
+        </div>
+    
+</section>
