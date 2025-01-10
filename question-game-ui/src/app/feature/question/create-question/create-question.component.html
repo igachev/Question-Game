@@ -1,0 +1,43 @@
+
+<section class="create-question-section">
+    <h2>Create Question</h2>
+    <form 
+    method="post"
+    #createQuestionForm="ngForm"
+    (ngSubmit)="onCreateQuestion(createQuestionForm)"
+    >
+        <div>
+            <label for="question">Question:</label>
+            <textarea 
+            name="question"
+            ngModel
+            ></textarea>
+        </div>
+        <div>
+            <select 
+            [(ngModel)]="selectedOption" 
+            name="numOfAnswers" 
+                >
+                <option value="" selected>Select the number of possible answers</option>
+                <option *ngFor="let n of numOfPossibleAnswers" 
+                [value]="n"   
+                >
+                {{ n }}
+            </option>
+            </select>
+        </div>
+        <!-- must create separate component-->
+        <app-answer-input 
+        [selectedOption]="selectedOption"
+        (answersEmitter)="getAnswers($event)"
+        >
+        </app-answer-input>
+        <div>
+            <label for="correctAnswer">Correct Answer:</label>
+            <input type="text" ngModel name="correctAnswer">
+        </div>
+        <div>
+            <button type="submit">Create</button>
+        </div>
+    </form>
+</section>
