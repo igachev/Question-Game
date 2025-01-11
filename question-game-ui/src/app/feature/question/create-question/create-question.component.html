@@ -1,6 +1,7 @@
 
 <section class="create-question-section">
     <h2>Create Question</h2>
+    <div class="inner-container">
     <ng-container *ngIf="listOfErrors.length > 0">
         <app-error [err]="listOfErrors"></app-error>
     </ng-container>
@@ -10,9 +11,11 @@
     (ngSubmit)="onCreateQuestion(createQuestionForm)"
     >
         
-        <div>
+        <div class="question-div">
             <label for="question">Question:</label>
-            <textarea 
+            <textarea
+            rows="5"
+            cols="30"
             name="question"
             ngModel
             ></textarea>
@@ -43,9 +46,10 @@
             <input type="text" ngModel name="correctAnswer">
         </div>
 
-        <div>
+        <div class="btn-container">
             <button type="submit">Create</button>
         </div>
 
     </form>
+</div>
 </section>
