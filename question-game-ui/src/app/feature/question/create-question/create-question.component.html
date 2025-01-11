@@ -1,11 +1,15 @@
 
 <section class="create-question-section">
     <h2>Create Question</h2>
+    <ng-container *ngIf="listOfErrors.length > 0">
+        <app-error [err]="listOfErrors"></app-error>
+    </ng-container>
     <form 
     method="post"
     #createQuestionForm="ngForm"
     (ngSubmit)="onCreateQuestion(createQuestionForm)"
     >
+        
         <div>
             <label for="question">Question:</label>
             <textarea 
@@ -13,6 +17,7 @@
             ngModel
             ></textarea>
         </div>
+
         <div>
             <select 
             [(ngModel)]="selectedOption" 
@@ -26,18 +31,21 @@
             </option>
             </select>
         </div>
-        <!-- must create separate component-->
+        
         <app-answer-input 
         [selectedOption]="selectedOption"
         (answersEmitter)="getAnswers($event)"
         >
         </app-answer-input>
+
         <div>
             <label for="correctAnswer">Correct Answer:</label>
             <input type="text" ngModel name="correctAnswer">
         </div>
+
         <div>
             <button type="submit">Create</button>
         </div>
+
     </form>
 </section>
