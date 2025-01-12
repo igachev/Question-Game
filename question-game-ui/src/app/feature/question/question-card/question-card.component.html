@@ -1,7 +1,8 @@
 
 <article class="question-card">
     <div class="timer-points-container">
-        <p>Timer:</p>
+        <p class="timer">Timer:
+        {{ addZeroMinutesIfLessThanTen() }}{{ minutes }}:{{ addZeroSecondsIfLessThanTen() }}{{ seconds }}</p>
         <p>Points: {{ points }}</p>
         <progress [value]="index+1" [max]="totalQuestions"></progress>
         <p>Question №:{{ index+1 }} / {{ totalQuestions }}</p>

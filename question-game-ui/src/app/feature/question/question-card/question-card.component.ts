@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { QuestionResponseData } from 'src/app/core/services/question.service';
 
 @Component({
@@ -15,9 +15,13 @@ export class QuestionCardComponent {
   @Input() index!: number;
   @Input() totalQuestions!: number;
   @Input() points!: number;
+  @Input() seconds!:number;
+  @Input() minutes!:number;
   @Output() pointsEmitter: EventEmitter<number> = new EventEmitter<number>();
   @Output() indexEmitter: EventEmitter<number> = new EventEmitter<number>();
   @Output() saveResultEmitter: EventEmitter<number> = new EventEmitter<number>()
+  
+  
 
   checkAnswer(userAnswer: string) {
     this.isSelected = true;
@@ -43,5 +47,13 @@ export class QuestionCardComponent {
     onSaveResult() {
       this.saveResultEmitter.next(this.points)
     }
+
+    addZeroMinutesIfLessThanTen(): string {
+     return this.minutes < 10 ? "0" : ""
+    }
+
+    addZeroSecondsIfLessThanTen(): string {
+      return this.seconds < 10 ? "0" : ""
+     }
 
 }
