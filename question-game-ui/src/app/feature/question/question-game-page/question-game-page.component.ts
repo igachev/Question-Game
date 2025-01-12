@@ -17,6 +17,10 @@ export class QuestionGamePageComponent implements OnInit,OnDestroy {
   index: number = 0;
   totalQuestions: number = 0;
   points: number = 0;
+  totalSeconds!: number;
+  minutes!: number;
+  seconds!: number;
+  runningInterval: any
 
   constructor(
     private questionService: QuestionService,
@@ -32,9 +36,27 @@ export class QuestionGamePageComponent implements OnInit,OnDestroy {
     this.questionSubscription = this.questionService.getTenRandomQuestions()
     .subscribe({
       next: (res) => {
+
+        if(this.runningInterval) {
+          clearInterval(this.runningInterval)
+        }
+
         this.questions = res;
         this.totalQuestions = res.length;
         console.log(this.questions)
+        this.totalSeconds = 10 * 20;
+        
+
+        this.runningInterval = setInterval(() => { 
+        this.minutes = Math.floor(this.totalSeconds / 60);
+        this.seconds = this.totalSeconds % 60
+          this.totalSeconds--
+          console.log(this.seconds)
+          if(this.totalSeconds === 0) {
+            clearInterval(this.runningInterval)
+          }
+        }, 1000);
+
       }
     })
   }
@@ -63,6 +85,9 @@ export class QuestionGamePageComponent implements OnInit,OnDestroy {
       }
       if(this.addScoreSubscription) {
         this.addScoreSubscription.unsubscribe()
+      }
+      if(this.runningInterval) {
+        clearInterval(this.runningInterval)
       }
   }
 
