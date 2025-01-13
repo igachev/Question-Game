@@ -1,6 +1,6 @@
 <section class="question-game-section">
 
-    <article class="question-game-article">
+    <article class="question-game-article" *ngIf="!isGameOver">
         <h3>When you are ready start the game</h3>
         <p>10 random questions will be generated</p>
         <p>You should answer them in the given time</p>
@@ -10,7 +10,7 @@
         </div>
     </article>
 
-    <ng-container *ngIf="questions.length > 0">
+    <ng-container *ngIf="questions.length > 0 && !isGameOver">
         <app-question-card 
         [question]="questions[index]"
         [index]="index"
@@ -23,6 +23,10 @@
         (saveResultEmitter)="saveScore($event)"
         >
         </app-question-card>
+    </ng-container>
+
+    <ng-container *ngIf="isGameOver">
+        <app-game-over (resetGameEmitter)="resetGame($event)"></app-game-over>
     </ng-container>
 
 </section>

@@ -21,6 +21,7 @@ export class QuestionGamePageComponent implements OnInit,OnDestroy {
   minutes!: number;
   seconds!: number;
   runningInterval: any
+  isGameOver: boolean = false;
 
   constructor(
     private questionService: QuestionService,
@@ -50,11 +51,11 @@ export class QuestionGamePageComponent implements OnInit,OnDestroy {
         this.runningInterval = setInterval(() => { 
         this.minutes = Math.floor(this.totalSeconds / 60);
         this.seconds = this.totalSeconds % 60
+        if(this.totalSeconds === 0) {
+          this.isGameOver = true;
+          clearInterval(this.runningInterval)
+        }
           this.totalSeconds--
-          console.log(this.seconds)
-          if(this.totalSeconds === 0) {
-            clearInterval(this.runningInterval)
-          }
         }, 1000);
 
       }
@@ -77,6 +78,13 @@ export class QuestionGamePageComponent implements OnInit,OnDestroy {
 
   updateIndex(indexValue: number) {
     this.index = indexValue
+  }
+
+  resetGame(setItToFalse: boolean) {
+    this.isGameOver = setItToFalse;
+    this.index = 0;
+    this.points = 0;
+    this.getQuestions();
   }
 
   ngOnDestroy(): void {

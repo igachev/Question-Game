@@ -10,13 +10,15 @@ import { QuestionCardComponent } from './question-card/question-card.component';
 import { CreateQuestionComponent } from './create-question/create-question.component';
 import { AnswerInputComponent } from './answer-input/answer-input.component';
 import { RouterModule } from '@angular/router';
+import { GameOverComponent } from './game-over/game-over.component';
 
 @NgModule({
   declarations: [
     QuestionGamePageComponent,
     QuestionCardComponent,
     CreateQuestionComponent,
-    AnswerInputComponent
+    AnswerInputComponent,
+    GameOverComponent
   ],
   imports: [
     CommonModule,
