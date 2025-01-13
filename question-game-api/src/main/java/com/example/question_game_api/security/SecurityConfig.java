@@ -34,7 +34,7 @@ public class SecurityConfig {
         .csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests((req) -> 
         req.requestMatchers("/auth/**").permitAll()
-        .requestMatchers("/questions/create","/questions/{question-id}/edit","/questions/{question-id}/delete").hasAuthority("ADMIN")
+        .requestMatchers("/questions/all/admin","/questions/create","/questions/{question-id}/edit","/questions/{question-id}/delete").hasAuthority("ADMIN")
         .requestMatchers("/score/add").hasAuthority("USER")
         .anyRequest()
         .permitAll()
