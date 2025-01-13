@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 
+
+
 @RestController
 @RequestMapping("questions")
 public class QuestionController {
@@ -47,6 +49,12 @@ public class QuestionController {
     public ResponseEntity<List<QuestionResponse>> generateTenRandomQuestions() {
         return ResponseEntity.ok(questionService.generateTenRandomQuestions());
     }
+
+    @GetMapping("/all/admin")
+    public ResponseEntity<List<QuestionResponse>> getAllQuestions() {
+        return ResponseEntity.ok(questionService.getAllQuestions());
+    }
+    
     
     @GetMapping("/{question-id}")
     public ResponseEntity<QuestionResponse> getQuestion(
