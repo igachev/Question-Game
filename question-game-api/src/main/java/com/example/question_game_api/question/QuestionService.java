@@ -116,5 +116,22 @@ public class QuestionService {
         return "the question was deleted successfully";
     }
 
+    public List<QuestionResponse> getAllQuestions() {
+        List<QuestionResponse> result = questionRepository.findAll()
+        .stream()
+        .map((question) -> {
+        QuestionResponse questionResponse = new QuestionResponse();
+        questionResponse.setId(question.getId());
+        questionResponse.setQuestion(question.getQuestion());
+        questionResponse.setAnswers(question.getAnswers());
+        questionResponse.setCorrectAnswer(question.getCorrectAnswer());
+        questionResponse.setCreatorId(question.getCreator().getId());
+        return questionResponse;
+        })
+        .collect(Collectors.toList());
+
+        return result;
+    }
+
 
 }
