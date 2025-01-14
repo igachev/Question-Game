@@ -1,0 +1,10 @@
+
+<section class="all-questions-section">
+    <h2>All Questions</h2>
+    <div class="question-container">
+    <article *ngFor="let question of allQuestions">
+            <h3>{{ question.question }}</h3>
+            <button>Details</button>
+    </article>
+    </div>
+</section>
