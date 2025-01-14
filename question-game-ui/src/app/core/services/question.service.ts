@@ -49,4 +49,8 @@ export class QuestionService {
         )
   }
 
+  getAllQuestions() {
+    return this.http.get<QuestionResponseData[]>("http://localhost:8080/questions/all/admin")
+  }
+
 }
