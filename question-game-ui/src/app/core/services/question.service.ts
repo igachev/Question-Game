@@ -53,8 +53,12 @@ export class QuestionService {
     return this.http.get<QuestionResponseData[]>("http://localhost:8080/questions/all/admin")
   }
 
-  getQuestion(id:String) {
+  getQuestion(id:string) {
     return this.http.get<QuestionResponseData>(`http://localhost:8080/questions/${id}`)
+  }
+
+  deleteQuestion(id:string) {
+    return this.http.delete(`http://localhost:8080/questions/${id}/delete`)
   }
 
 }
