@@ -1,0 +1,86 @@
+.question-details-section {
+    width: 100%;
+    height: 90%;
+    background: linear-gradient(to right,hsl(13, 74%, 4%),hsl(79, 4%, 51%));
+    padding: 2rem 0;
+    .question {
+        border-radius: 3rem;
+        background-color: #AEAEAE;
+        width: 80%;
+        padding: 1rem;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow: -1px -1px 2px 3px wheat;
+        h3 {
+            font-size: 1.7rem;
+            margin-bottom: 1rem;
+            font-weight: 300;
+            span {
+                padding-right: 0.4rem;
+            }
+        }
+        .possible-answers {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        .answer-container {
+            width: 90%;
+            .answer {
+                padding: 0.4rem 0.6rem;
+                text-align: center;
+                font-size: 1.3rem;
+                font-style: italic;
+                span {
+                    padding-right: 0.4rem;
+                }
+            }
+            hr {
+                overflow: visible; /* For IE */
+                height: 30px;
+                border-style: solid;
+                border-color: black;
+                border-width: 1px 0 0 0;
+                border-radius: 20px;
+                width: 50%;
+                margin: auto;
+
+            }
+            hr:before { /* Not really supposed to work, but does */
+                display: block;
+                content: "";
+                height: 30px;
+                margin-top: -31px;
+                border-style: solid;
+                border-color: white;
+                border-width: 0 0 1px 0;
+                border-radius: 20px;
+            }
+        }
+        .correct-answer {
+            font-size: 1.3rem;
+            padding-bottom: 1rem;
+            span {
+                padding-right: 0.6rem;
+            }
+        }
+        .btn-container {
+            button:nth-child(1) {
+                margin-right: 10px;
+            }
+            button {
+                font-size: 1.2rem;
+                padding: 1rem 0.6rem;
+                background-color: cadetblue;
+                border: none;
+                cursor: pointer;
+                color: #fff;
+                border-radius: 0.3rem;
+                font-weight: lighter;
+                letter-spacing: 2px;
+            }
+        }
+    }
+}

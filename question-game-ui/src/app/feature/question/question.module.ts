@@ -12,6 +12,7 @@ import { AnswerInputComponent } from './answer-input/answer-input.component';
 import { RouterModule } from '@angular/router';
 import { GameOverComponent } from './game-over/game-over.component';
 import { AllQuestionsComponent } from './all-questions/all-questions.component';
+import { QuestionDetailsComponent } from './question-details/question-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AllQuestionsComponent } from './all-questions/all-questions.component';
     CreateQuestionComponent,
     AnswerInputComponent,
     GameOverComponent,
-    AllQuestionsComponent
+    AllQuestionsComponent,
+    QuestionDetailsComponent
   ],
   imports: [
     CommonModule,

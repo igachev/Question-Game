@@ -1,0 +1,20 @@
+<section class="question-details-section">
+    <article class="question" *ngIf="question">
+        <h3><span>Question:</span>{{ question.question }}</h3>
+        <p class="possible-answers">Possible Answers:</p>
+        <ng-container *ngFor="let answer of question.answers;let i=index">
+            <div class="answer-container">
+            <p class="answer" >
+                <span>{{ i+1 }}.</span>{{ answer }}
+            </p>
+            <hr>
+            </div>
+        </ng-container>
+       
+        <p class="correct-answer"><span>Correct Answer:</span>{{ question.correctAnswer }}</p>
+        <div class="btn-container">
+            <button>Edit Question</button>
+            <button>Delete Question</button>
+        </div>
+    </article>
+</section>
