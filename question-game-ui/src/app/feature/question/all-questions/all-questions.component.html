@@ -4,7 +4,7 @@
     <div class="question-container">
     <article *ngFor="let question of allQuestions">
             <h3>{{ question.question }}</h3>
-            <button>Details</button>
+            <button (click)="showQuestionDetails(question.id)">Details</button>
     </article>
     </div>
 </section>

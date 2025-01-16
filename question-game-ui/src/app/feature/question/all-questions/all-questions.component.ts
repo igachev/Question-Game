@@ -33,10 +33,16 @@ export class AllQuestionsComponent implements OnInit,OnDestroy {
     })
   }
 
+  showQuestionDetails(id: number) {
+    this.router.navigate([`/questions/${id}`])
+  }
+
   ngOnDestroy(): void {
       if(this.allQuestionsSubscription) {
         this.allQuestionsSubscription.unsubscribe()
       }
   }
+
+
 
 }
