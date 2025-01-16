@@ -53,4 +53,8 @@ export class QuestionService {
     return this.http.get<QuestionResponseData[]>("http://localhost:8080/questions/all/admin")
   }
 
+  getQuestion(id:String) {
+    return this.http.get<QuestionResponseData>(`http://localhost:8080/questions/${id}`)
+  }
+
 }
