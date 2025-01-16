@@ -12,6 +12,7 @@ export class QuestionDetailsComponent implements OnInit,OnDestroy {
 
   question!: QuestionResponseData
   questionSubscription!: Subscription
+  deleteSubscription!: Subscription
 
   constructor(
     private questionService: QuestionService,
@@ -35,9 +36,22 @@ export class QuestionDetailsComponent implements OnInit,OnDestroy {
     })
   }
 
+  deleteQuestion() {
+    const questionId = this.activatedRoute.snapshot.params['id']
+    this.deleteSubscription = this.questionService.deleteQuestion(questionId)
+    .subscribe({
+      next: (res) => {
+        this.router.navigate(['questions/all'])
+      }
+    })
+  }
+
   ngOnDestroy(): void {
       if(this.questionSubscription) {
         this.questionSubscription.unsubscribe()
+      }
+      if(this.deleteSubscription) {
+        this.deleteSubscription.unsubscribe()
       }
   }
 
