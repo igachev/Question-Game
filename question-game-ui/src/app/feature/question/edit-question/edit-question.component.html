@@ -1,14 +1,14 @@
 
 <section>
     <h2>Edit Page</h2>
-    <div>
+    
         <form method="post" #editForm="ngForm" (ngSubmit)="onEdit(editForm)" *ngIf="question">
-            <div>
+            <div class="question-div">
                 <label for="question">Question:</label>
                 <textarea 
                 name="question" 
-                rows="5" 
-                cols="30" 
+                rows="7" 
+                cols="50" 
                 ngModel
                 [(ngModel)]="question.question"
                 >
@@ -16,10 +16,11 @@
             </div>
             <div>
                 
-                    <div *ngFor="let answer of question.answers;let i=index">
+                    <div class="answer-div" *ngFor="let answer of question.answers;let i=index; trackBy:trackByFn">
                         <label [attr.for]="inputAttributes[i]">Answer {{i+1}}</label>
                         <input 
                         type="text"
+                        ngModel
                         [(ngModel)]="question.answers[i]"
                         [attr.name]="inputAttributes[i]" 
                         [ngModelOptions]="{standalone: true}"
@@ -27,7 +28,7 @@
                     </div>
                 
             </div>
-            <div>
+            <div class="correct-answer-div">
                 <label for="correctAnswer">Correct Answer:</label>
                 <input 
                 type="text" 
@@ -38,8 +39,8 @@
             </div>
             <div class="btn-container">
                 <button type="submit">Edit</button>
-                <button type="button">Back</button>
+                <button (click)="back()" type="button">Back</button>
             </div>
         </form>
-    </div>
+    
 </section>
