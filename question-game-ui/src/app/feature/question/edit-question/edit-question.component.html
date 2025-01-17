@@ -1,0 +1,45 @@
+
+<section>
+    <h2>Edit Page</h2>
+    <div>
+        <form method="post" #editForm="ngForm" (ngSubmit)="onEdit(editForm)" *ngIf="question">
+            <div>
+                <label for="question">Question:</label>
+                <textarea 
+                name="question" 
+                rows="5" 
+                cols="30" 
+                ngModel
+                [(ngModel)]="question.question"
+                >
+                </textarea>
+            </div>
+            <div>
+                
+                    <div *ngFor="let answer of question.answers;let i=index">
+                        <label [attr.for]="inputAttributes[i]">Answer {{i+1}}</label>
+                        <input 
+                        type="text"
+                        [(ngModel)]="question.answers[i]"
+                        [attr.name]="inputAttributes[i]" 
+                        [ngModelOptions]="{standalone: true}"
+                        >
+                    </div>
+                
+            </div>
+            <div>
+                <label for="correctAnswer">Correct Answer:</label>
+                <input 
+                type="text" 
+                name="correctAnswer"
+                [(ngModel)]="question.correctAnswer"
+                
+                >
+            </div>
+            <div class="btn-container">
+                <button type="submit">Edit</button>
+                <button type="button">Back</button>
+            </div>
+        </form>
+    </div>
+</section>

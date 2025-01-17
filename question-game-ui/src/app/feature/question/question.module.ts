@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { GameOverComponent } from './game-over/game-over.component';
 import { AllQuestionsComponent } from './all-questions/all-questions.component';
 import { QuestionDetailsComponent } from './question-details/question-details.component';
+import { EditQuestionComponent } from './edit-question/edit-question.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { QuestionDetailsComponent } from './question-details/question-details.co
     AnswerInputComponent,
     GameOverComponent,
     AllQuestionsComponent,
-    QuestionDetailsComponent
+    QuestionDetailsComponent,
+    EditQuestionComponent
   ],
   imports: [
     CommonModule,

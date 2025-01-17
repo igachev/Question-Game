@@ -46,6 +46,11 @@ export class QuestionDetailsComponent implements OnInit,OnDestroy {
     })
   }
 
+  goToEditPage() {
+    const questionId = this.activatedRoute.snapshot.params['id']
+    this.router.navigate([`questions/${questionId}/edit`])
+  }
+
   ngOnDestroy(): void {
       if(this.questionSubscription) {
         this.questionSubscription.unsubscribe()
