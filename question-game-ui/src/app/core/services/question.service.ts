@@ -61,4 +61,8 @@ export class QuestionService {
     return this.http.delete(`http://localhost:8080/questions/${id}/delete`)
   }
 
+  editQuestion(id:string, questionRequestData: QuestionRequestData) {
+    return this.http.patch<QuestionResponseData>(`http://localhost:8080/questions/${id}/edit`,questionRequestData)
+  }
+
 }
