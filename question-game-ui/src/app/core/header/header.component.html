@@ -13,7 +13,7 @@
                     <a [routerLink]="['/score/all-users-scores']">Ranking List</a>
                     <span></span>
                 </li>
-               <ng-container *ngIf="!isAuthenticated">
+               <ng-container *ngIf="!isAuthenticated && !isAdmin">
                 <li>
                     <a [routerLink]="['/auth/login']">Login</a>
                     <span></span>
@@ -23,19 +23,12 @@
                     <span></span>
                 </li>
                </ng-container>
-               <ng-container *ngIf="isAuthenticated">
+               <ng-container *ngIf="isAuthenticated && !isAdmin">
                 <li>
                     <a [routerLink]="['/questions']">Play Now</a>
                     <span></span>
                 </li>
-                <li>
-                    <a [routerLink]="['/questions/create']">Create Question</a>
-                    <span></span>
-                </li>
-                <li>
-                    <a [routerLink]="['/questions/all']">All Questions</a>
-                    <span></span>
-                </li>
+                
                 <li>
                     <a [routerLink]="['/score/user-scores']">User Scores</a>
                     <span></span>
@@ -44,6 +37,21 @@
                     <button (click)="onLogout()">Logout</button>
                     <span></span>
                 </li>
+                </ng-container>
+
+                <ng-container *ngIf="isAuthenticated && isAdmin">
+                    <li>
+                        <a [routerLink]="['/questions/create']">Create Question</a>
+                        <span></span>
+                    </li>
+                    <li>
+                        <a [routerLink]="['/questions/all']">All Questions</a>
+                        <span></span>
+                    </li>
+                    <li>
+                        <button (click)="onLogout()">Logout</button>
+                        <span></span>
+                    </li>
                 </ng-container>
             </ul>
         </nav>

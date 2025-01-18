@@ -26,10 +26,16 @@
                         font-weight: 200;
                         font-size: 1.3rem;
                         letter-spacing: 1.3px;
-                        
+                    }
+                    button {
+                        border: none;
+                        background-color: transparent;
+                        padding: 0.3rem;
+                        color: #fff;
+                        font-size: 1.1rem;
+                        letter-spacing: 1.3px;
                     }
                     span {
-                        
                         background-color: red;
                         width: 0;
                         height: 0px;
@@ -45,7 +51,7 @@
                         height: 2px;
                         margin: 5px auto;
                     }
-                    a {
+                    a,button {
                         color: rgb(103, 128, 55);
                     }
                 }
