@@ -1,5 +1,6 @@
 
 <section class="user-scores-section">
+    <app-loading-spinner></app-loading-spinner>
     <div class="user-info">
         <h2 *ngIf="userScores.length">Player:{{ userScores[0].playerEmail }}</h2>
         <h3>best scores, sorted from best to worst</h3>

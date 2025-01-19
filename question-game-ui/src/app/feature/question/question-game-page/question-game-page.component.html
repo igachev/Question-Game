@@ -1,5 +1,5 @@
-<section class="question-game-section">
 
+<section class="question-game-section">
     <article class="question-game-article" *ngIf="!isGameOver">
         <h3>When you are ready start the game</h3>
         <p>10 random questions will be generated</p>
@@ -9,6 +9,8 @@
             <button (click)="getQuestions()" class="start-btn">Start</button>
         </div>
     </article>
+
+        <app-loading-spinner></app-loading-spinner>
 
     <ng-container *ngIf="questions.length > 0 && !isGameOver">
         <app-question-card 

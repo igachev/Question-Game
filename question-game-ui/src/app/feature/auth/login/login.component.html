@@ -1,5 +1,6 @@
 
 <section class="login-section">
+    <app-loading-spinner></app-loading-spinner>
     <h2>Login Page</h2>
     <ng-container *ngIf="listOfErrors.length > 0">
         <app-error [err]="listOfErrors"></app-error>
