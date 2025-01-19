@@ -6,6 +6,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AuthInterceptorInterceptor } from './interceptors/auth-interceptor.interceptor';
 import { LoadingSpinnerInterceptor } from './interceptors/loading-spinner.interceptor';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { LoadingSpinnerInterceptor } from './interceptors/loading-spinner.interc
   imports: [
     CommonModule,
     HttpClientModule,
+    FontAwesomeModule,
     RouterModule
   ],
   providers: [
