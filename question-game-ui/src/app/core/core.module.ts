@@ -5,6 +5,7 @@ import { FooterComponent } from './footer/footer.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { AuthInterceptorInterceptor } from './interceptors/auth-interceptor.interceptor';
+import { LoadingSpinnerInterceptor } from './interceptors/loading-spinner.interceptor';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { AuthInterceptorInterceptor } from './interceptors/auth-interceptor.inte
     RouterModule
   ],
   providers: [
-      {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptorInterceptor,multi:true}
+      {provide:HTTP_INTERCEPTORS,useClass:AuthInterceptorInterceptor,multi:true},
+      {provide:HTTP_INTERCEPTORS,useClass:LoadingSpinnerInterceptor,multi:true}
     ],
   exports: [
     HeaderComponent,
