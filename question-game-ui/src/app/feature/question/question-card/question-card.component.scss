@@ -1,7 +1,7 @@
 
 .question-card {
     margin: 0.8rem auto;
-    width: 60%;
+    width: 80%;
     height: 60%;
     background-color: red;
     color: #fff;
@@ -101,4 +101,53 @@
     0%   {transform: translate(0,0);}
     50%  {transform: translate(5%,0);}
     100% {transform: translate(0,0);}
+}
+
+@media(max-width:1150px) {
+    .question-card {
+        .timer-points-container {
+            p {
+                font-size: 1rem;
+            }
+            progress[value] {
+                width: 220px;
+                height: 20px;
+              }
+        }
+        .question-container {
+            .question-title {
+                font-size: 1.1rem;
+            }
+            .answers-container {
+                .answer-btn {
+                    font-size: 0.9rem;
+                }
+            }
+            .next-btn {
+                font-size: 1.1rem;
+            }
+        }
+    }
+}
+
+@media(max-width:780px) {
+    .question-card {
+        .timer-points-container {
+            flex-direction: column;
+            gap: 20px;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
+
+@media(max-width:600px) {
+    .question-card {
+        .timer-points-container {
+            progress[value] {
+                width: 140px;
+                height: 20px;
+              }
+        }
+    }
 }
