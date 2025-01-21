@@ -51,3 +51,27 @@
         }
     }
 }
+
+@media(max-width:800px) {
+    .home-section {
+        h1 {
+            font-size: 1.4rem;
+        }
+        h3 {
+            font-size: 1rem;
+        }
+        article {
+            div {
+                h4 {
+                    font-size: 1.4rem;
+                }
+                h5 {
+                    font-size: 1.2rem;
+                }
+                h6 {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
