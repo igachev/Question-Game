@@ -44,3 +44,19 @@
         }
     }
 }
+
+@media(max-width:500px) {
+    .all-users-scores-section {
+        .user-info {
+            h2 {
+                font-size: 1rem;
+            }
+            h3 {
+                font-size: 0.9rem;
+            }
+        }
+        table {
+            font-size: 0.8rem;
+        }
+    }
+}
