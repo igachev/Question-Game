@@ -14,6 +14,7 @@
         color: #fff;
         margin: auto;
         box-shadow: 1px -1px 4px 3.5px burlywood;
+        padding: 0.8rem 0.4rem;
         h3 {
             font-size: 2rem;
             font-weight: 900;
@@ -32,6 +33,50 @@
                 border: none;
                 border-radius: 0.5rem;
             }
+        }
+    }
+}
+
+@media(max-width:1000px) {
+    .question-game-section {
+        .question-game-article {
+            h3 {
+                font-size: 1.3rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .btn-container {
+                .start-btn {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:600px) {
+    .question-game-section {
+        .question-game-article {
+            height: 45%;
+        }
+    }
+}
+
+@media(max-width:400px) {
+    .question-game-section {
+        .question-game-article {
+            h3 {
+                font-size: 1rem;
+            }
+            p {
+                font-size: 0.7rem;
+            }
+            .btn-container {
+                .start-btn {
+                    font-size: 0.8rem;
+                }
+            } 
         }
     }
 }
