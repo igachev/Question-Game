@@ -20,6 +20,9 @@
         margin: auto;
         gap: 20px;
         border-radius: 0.6rem;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        padding: 0.6rem 0.3rem;
         article {
             width: 45%;
             text-align: center;
@@ -42,6 +45,39 @@
             button:hover {
                 background-color: blanchedalmond;
                 color: brown;
+            }
+        }
+    }
+}
+
+@media(max-width:800px) {
+    .all-questions-section {
+        h2 {
+            font-size: 1.3rem;
+        }
+        .question-container {
+            article {
+                h3 {
+                    font-size: 1rem;
+                }
+                button {
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
+
+@media(max-width:400px) {
+    .all-questions-section {
+        .question-container {
+            article {
+                h3 {
+                    font-size: 0.8rem;
+                }
+                button {
+                    font-size: 0.7rem;
+                }
             }
         }
     }
