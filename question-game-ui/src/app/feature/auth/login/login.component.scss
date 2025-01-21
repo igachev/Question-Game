@@ -1,0 +1,84 @@
+
+.login-section {
+    width: 100%;
+    height: 90%;
+    background-color: #DCDCDC;
+    h2 {
+        text-align: center;
+        font-size: 2.3rem;
+        padding: 1rem 0.5rem;
+        letter-spacing: 3px;
+    }
+    form {
+        margin: auto;
+        width: 80%;
+        height: 50%;
+        background-color: #AEAEAE;
+        display: flex;
+        flex-direction: column;
+        padding: 0.8rem 0.5rem;
+        border-radius: 1rem;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        animation-name: form-animation;
+        animation-duration: 3s;
+        animation-fill-mode: both;
+        div {
+            
+            label {
+                opacity: 0;
+                margin-right: 0.4rem;
+                animation-name: label-animation;
+                animation-delay: 3s;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+            }
+            input {
+                border-radius: 0.3rem;
+                padding: 0.5rem;
+                border: none;
+                font-size: 1rem;
+            }
+            .validation-error {
+                color: red;
+                text-align: center;
+                padding-top: 0.3rem;
+                font-size: 1.2rem;
+                font-weight: bolder;
+                opacity: 0.6;
+            }
+        }
+        .btn-container {
+
+            button {
+                border: none;
+                padding: 0.7rem 1rem;
+                font-size: 1.2rem;
+                border-radius: 0.6rem;
+                cursor: pointer;
+                text-transform: uppercase;
+                background-color: black;
+                color: #fff;
+                font-weight: lighter;
+                transition: all 0.3s ease-out;
+            }
+            button:hover {
+                background-color: white;
+                color: black;
+            }
+        }
+    }
+}
+
+
+@keyframes form-animation {
+    0%   {transform: translateX(-100%);}
+    100% {transform: translateX(0);}
+  }
+
+@keyframes label-animation {
+    0% {opacity: 0.1;}
+    50% {opacity: 0.5;}
+    100% {opacity: 1;}
+}
