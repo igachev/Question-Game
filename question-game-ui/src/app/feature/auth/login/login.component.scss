@@ -82,3 +82,26 @@
     50% {opacity: 0.5;}
     100% {opacity: 1;}
 }
+
+@media(max-width:500px) {
+   .login-section {
+    h2 {
+        font-size: 1.3rem;
+       } 
+       form {
+        div {
+            label {
+                font-size: 0.8rem;
+               }
+               input {
+                font-size: 0.7rem;
+               }
+        }
+        .btn-container {
+            button {
+                font-size: 0.7rem;
+               }
+        }
+       }
+   }
+}
