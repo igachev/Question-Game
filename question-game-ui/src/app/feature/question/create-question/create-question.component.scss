@@ -91,3 +91,38 @@
         }
     }
 }
+
+@media(max-width:850px) {
+    .create-question-section {
+        h2 {
+            font-size: 1.3rem;
+        }
+        .inner-container {
+            form {
+                .question-div {
+                    label {
+                        font-size: 1rem;
+                    }
+                }
+                textarea {
+                    font-size: 0.9rem;
+                    width: 50%;
+                }
+                select {
+                    font-size: 0.8rem;
+                }
+                label {
+                    font-size: 1rem;
+                }
+                input {
+                    font-size: 0.8rem;
+                }
+                .btn-container {
+                    button {
+                        font-size: 1rem;
+                    }
+                }
+            }
+        }
+    }
+}
