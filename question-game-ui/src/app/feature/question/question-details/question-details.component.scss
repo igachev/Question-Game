@@ -84,3 +84,30 @@
         }
     }
 }
+
+@media(max-width:500px) {
+    .question-details-section {
+        .question {
+            h3 {
+                font-size: 1.1rem;
+            }
+            .possible-answers {
+                font-size: 1rem;
+            }
+            .answer-container {
+                .answer {
+                    font-size: 0.9rem;
+                }
+            }
+            .correct-answer {
+                font-size: 1rem;
+            }
+            .btn-container {
+                button {
+                    margin-bottom: 0.3rem;
+                    font-size: 0.8rem;
+                }
+            }
+        }
+    }
+}
