@@ -34,3 +34,18 @@ footer {
     }
     
 }
+
+@media(max-width:1000px) {
+    footer {
+        .icon-container {
+            .icon {
+                font-size: 1.3rem;
+            }
+        }
+        .text-container {
+            p {
+                font-size: 1.3rem;
+            }
+        }
+    }
+}
