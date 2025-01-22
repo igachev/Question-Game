@@ -15,7 +15,7 @@ public interface QuestionRepository extends JpaRepository<Question,Integer> {
         SELECT *
         FROM question
         ORDER BY RANDOM()
-        LIMIT 2;
+        LIMIT 10;
        """, nativeQuery = true)
     List<Question> generateTenRandomQuestions();
 
