@@ -5,6 +5,7 @@
 <p><strong>The admin can:</strong> create questions,edit questions,delete questions,check the existing questions in the database</p>
 <p><strong>The regular user can:</strong> play the game,check out the list of his scores,check out the ranking list to see the best players and compare his result with their</p>
 <p><strong>guest user can:</strong> register,login,check out the ranking list of the best players</p>
+<h3>there are images below that visually explain how the application works</h3>
 
 ## Backend documentation:
 <p>This API is built using Spring Boot,PostgreSQL,Spring Security,JSON web token</p>
@@ -73,3 +74,8 @@
 - `/questions/:id/edit`: it shows Edit Question Page.Available only for admin user.
 - `/score/user-scores`: it shows the list of scores for the logged in user only.Available only for logged in users.
 - `/score/all-users-scores`: it shows the ranking list page.It contains the best result of each player.The player can compare his score with other players.Available for all users.
+
+## Folder Structure:
+- `core`: It contains static components like header and footer, services, http interceptors
+- `shared`: It contains reusable components.In my case reusable components are: <strong>Error Component,Loading Spinner Component</strong>
+- `feature`: It contains all distinct modules.The components of each module share related functionality.We have three modules: auth,question,score.
