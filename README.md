@@ -1,5 +1,11 @@
 # Question-Game
 
+## How It Works:
+<p>There are 3 types of users: admin user,regular user,guest user</p>
+<p><strong>The admin can:</strong> create questions,edit questions,delete questions,check the existing questions in the database</p>
+<p><strong>The regular user can:</strong> play the game,check out the list of his scores,check out the ranking list to see the best players and compare his result with their</p>
+<p><strong>guest user can:</strong> register,login,check out the ranking list of the best players</p>
+
 ## Backend documentation:
 <p>This API is built using Spring Boot,PostgreSQL,Spring Security,JSON web token</p>
 
