@@ -79,3 +79,105 @@
 - `core`: It contains static components like header and footer, services, http interceptors
 - `shared`: It contains reusable components.In my case reusable components are: <strong>Error Component,Loading Spinner Component</strong>
 - `feature`: It contains all distinct modules.The components of each module share related functionality.We have three modules: auth,question,score.
+
+## Images:
+<div align="center">
+  <p>The Home Page of the application.It gives brief information about the purpose of the application.</p>
+
+  ![02 homepage](https://github.com/user-attachments/assets/37c439e2-4d15-4f23-a2d6-ce793775679f)
+
+</div>
+
+<div align="center">
+  <p>Register Page.It shows validation errors if we skip filling particular field</p>
+
+  ![06 register-validation](https://github.com/user-attachments/assets/af55a423-2199-4567-b05c-e61e209a3489)
+
+</div>
+
+<div align="center">
+  <p>Login Page.</p>
+
+  ![04 login-page](https://github.com/user-attachments/assets/a1a5dfe9-1d69-425b-83fd-4e09c658932d)
+
+</div>
+
+<div align="center">
+  <p>Login Page.It shows server errors if we enter invalid user credentials.</p>
+
+  ![05 login-invalid-credentials](https://github.com/user-attachments/assets/46f2e030-d22c-476c-a726-b9361066be33)
+
+</div>
+
+<div align="center">
+  <p>Game Start Page.</p>
+
+  ![08 game-start](https://github.com/user-attachments/assets/3732ac71-5d22-4a93-b809-c6326cd5f4fe)
+
+</div>
+
+<div align="center">
+  <p>The user is playing the game.</p>
+
+  ![09 game-started](https://github.com/user-attachments/assets/e60aac61-3c7a-4263-9b21-7851032fbc00)
+
+</div>
+
+<div align="center">
+  <p>Game Over.When the user fails to answer the questions in the given time Game Over appears</p>
+
+  ![10 game-over](https://github.com/user-attachments/assets/762ce29d-b15e-48cf-9ac9-a70fb6efb303)
+
+</div>
+
+<div align="center">
+  <p>The list of user's scores</p>
+
+  ![07 user-scores](https://github.com/user-attachments/assets/fc391aee-e077-4f66-8910-e19209f362a1)
+
+</div>
+
+<div align="center">
+  <p>Ranking List Page.It contains the best score of each player.</p>
+
+  ![03 ranking-list](https://github.com/user-attachments/assets/ba255a8a-bc9d-4378-a48f-b6f9219457ea)
+
+</div>
+
+<div align="center">
+  <p>Create Question Page</p>
+
+  ![01 create-question](https://github.com/user-attachments/assets/bcdfaf2f-dcb5-41c1-9c4a-f3ea8115eb89)
+
+</div>
+
+<div align="center">
+  <p>The list of all existing questions</p>
+
+  ![11 all-questions-admin](https://github.com/user-attachments/assets/6b5b29e3-18c8-4ba4-a60d-ce0b7f8dbce4)
+
+</div>
+
+<div align="center">
+  <p>Question Details Page</p>
+
+  ![12 question-details](https://github.com/user-attachments/assets/5d2ad9b0-40a2-4e3f-ae27-a09dff891d1e)
+
+</div>
+
+<div align="center">
+  <p>Edit Question Page</p>
+
+  ![13 edit-question](https://github.com/user-attachments/assets/c701e26f-0844-49a9-b032-7de8ce9cb160)
+
+</div>
+
+<div align="center">
+  <p>I implemented web responsive design to each page</p>
+
+  ![14 web-responsive](https://github.com/user-attachments/assets/6d2eadb6-e1d9-4a0b-a842-6874abf2f81e)
+
+  ![15 web-responsive](https://github.com/user-attachments/assets/dbe525c7-484f-4d8c-aab0-7372eda8a64b)
+
+
+</div>
