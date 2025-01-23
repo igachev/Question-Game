@@ -52,3 +52,24 @@
 - `POST /score/add`: it adds the user score
 - `GET /score/user`: it shows all scores for particular user
 - `GET /score/all-users`: shows a list of each user's top scores
+
+## Front-end documentation:
+<p>This UI is built using Angular</p>
+
+## Installation:
+7. make sure you have completed the above mentioned back end installation
+8. Go to folder question-game-ui: `cd question-game-ui`
+9. Install the necessary dependencies: `npm install`
+10. Run the UI: `ng serve`
+
+## Routes:
+- `/`: it shows the Home page
+- `/auth/register`: it shows the Register page
+- `/auth/login`: it shows the Login page
+- `/questions`: it shows the page where the logged in user plays the game.Available only for logged in users.
+- `/questions/create`: it shows the Create Question page.Available only for admin user
+- `/questions/all`: it shows all existing questions.Available only for admin user.
+- `/questions/:id`: it shows particular Question and its details.Available only for admin user.
+- `/questions/:id/edit`: it shows Edit Question Page.Available only for admin user.
+- `/score/user-scores`: it shows the list of scores for the logged in user only.Available only for logged in users.
+- `/score/all-users-scores`: it shows the ranking list page.It contains the best result of each player.The player can compare his score with other players.Available for all users.
